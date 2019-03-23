@@ -43,3 +43,4 @@ The following datasets are currently supported by the framework.
 
 * MNIST
 * CIFAR-10
+* CelebA
