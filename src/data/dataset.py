@@ -364,12 +364,12 @@ class Dataset(ABC):
         if self._data['val_inds'] is None:
             return None
 
-        if self._batch_gen_test is None:
-            self._batch_gen_test = \
+        if self._batch_gen_val is None:
+            self._batch_gen_val = \
                 Dataset._get_random_batch(self._data['val_inds'],
                                           self._shuffle_val_samples)
 
-        batch_inds = np.fromiter(self._batch_gen_test, np.int,
+        batch_inds = np.fromiter(self._batch_gen_val, np.int,
                                  count=batch_size)
         return [self._data['in_data'][batch_inds, :],
                 self._get_outputs(self._data['out_data'][batch_inds, :],
